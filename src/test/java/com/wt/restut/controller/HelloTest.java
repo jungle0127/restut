@@ -17,8 +17,9 @@ public class HelloTest {
 	@Autowired
 	private MockMvc mockMVC;
 	
-	@Test
+	@Test(expected=Exception.class)
 	public void testSay() throws Exception {
-		mockMVC.perform(MockMvcRequestBuilders.get("/hello")).andExpect(MockMvcResultMatchers.status().isOk());
+		mockMVC.perform(MockMvcRequestBuilders.get("/hello"))
+		.andExpect(MockMvcResultMatchers.status().isOk());
 	}
 }
